@@ -1,0 +1,17 @@
+node_modules
+
+.idea/
+.vscode/
+.next/
+
+build/
+dist/
+
+*.min.js
+*.min.css
+*.map
+package-lock.json
+yarn.lock
+bun.lock
+
+.env*
