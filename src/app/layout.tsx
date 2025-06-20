@@ -1,18 +1,14 @@
 import type React from 'react';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
+
+import { cn } from '~/lib/utils';
+import { fontVariables } from '~/lib/fonts';
+import { ActiveThemeProvider } from '~/components/active-theme';
+import { ThemeProvider } from '~/components/theme-provider';
+import { Toaster } from '~/components/ui/sonner';
+
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'UptimeMonitor | Service Status Dashboard',
@@ -26,8 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{ cssLayerName: 'clerk' }}>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <html lang="en" suppressHydrationWarning={true}>
+        <body
+          className={cn(
+            'text-foreground group/body overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*24)]',
+            fontVariables
+          )}
+        >
+          <ActiveThemeProvider>
+            <ThemeProvider>
+              {children}
+              <Toaster position="bottom-right" />
+            </ThemeProvider>
+          </ActiveThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
