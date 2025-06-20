@@ -17,7 +17,7 @@ export async function fetchLatestMonitors() {
   return monitors.slice(0, 5);
 }
 
-export async function fetchMonitorById(id: string) {
+export async function fetchMonitorById(id: number) {
   // TODO: Implement the actual API call to fetch a monitor by ID
   await new Promise(resolve => setTimeout(resolve, 1000));
 
