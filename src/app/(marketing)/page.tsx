@@ -19,7 +19,7 @@ export default function Home() {
         <main className="grid gap-8 items-center">
           <div className="flex items-center gap-px">
             <Activity className="h-8 w-8 text-primary-500" />
-            <h1 className="ml-3 text-2xl font-bold text-gray-900">UptimeMonitor</h1>
+            <h1 className="ml-3 text-2xl font-bold">UptimeMonitor</h1>
           </div>
           <div className="flex items-center justify-center">
             <Button asChild>
