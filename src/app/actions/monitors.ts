@@ -19,3 +19,21 @@ export async function fetchMonitorById(id: number) {
 
   return await response.json();
 }
+
+export async function fetchUptimeChecks() {
+  const response = await fetch(`${endpoint}/api/uptimecheck`, {});
+
+  return await response.json();
+}
+
+export async function fetchUptimeChecksById(id: number) {
+  const response = await fetch(`${endpoint}/api/uptimecheck/${id}`, {});
+
+  return await response.json();
+}
+
+export async function fetchUptimeCheckEvents() {
+  const response = await fetch(`${endpoint}/api/uptimeevents/by-check`, {});
+
+  return await response.json();
+}

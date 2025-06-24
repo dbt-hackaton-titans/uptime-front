@@ -21,7 +21,7 @@ export default async function MonitorsPage({ params }: { params: Promise<{ id: n
         {/* You can add more components or details related to the monitor here */}
         {components.length > 0 ? (
           <div className="grid gap-4">
-            {components.map((component) => (
+            {components.map((component:any) => (
               <div key={component.id} className="p-4 bg-gray-100 rounded-lg shadow">
                 <h3 className="text-lg font-semibold">{component.name}</h3>
                 <p>{component.description}</p>
