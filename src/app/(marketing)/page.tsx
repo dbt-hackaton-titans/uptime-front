@@ -1,5 +1,7 @@
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 import { Activity, LucideCode } from 'lucide-react';
+import { Button } from '~/components/ui/button';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -14,21 +16,16 @@ export default function Home() {
             <UserButton />
           </SignedIn>
         </header>
-        <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <main className="grid gap-8 items-center">
           <div className="flex items-center gap-px">
-            <Activity className="h-8 w-8 text-blue-600" />
+            <Activity className="h-8 w-8 text-primary-500" />
             <h1 className="ml-3 text-2xl font-bold text-gray-900">UptimeMonitor</h1>
           </div>
-          <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-            <li className="mb-2 tracking-[-.01em]">
-              Get started by editing{' '}
-              <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-                src/app/page.tsx
-              </code>
-              .
-            </li>
-            <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-          </ol>
+          <div className="flex items-center justify-center">
+            <Button asChild>
+              <Link href="/dashboard">/dashboard</Link>
+            </Button>
+          </div>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           <a

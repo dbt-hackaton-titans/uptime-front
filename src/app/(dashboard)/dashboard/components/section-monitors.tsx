@@ -39,7 +39,7 @@ export async function SectionMonitors() {
       <CardContent>
         <div className="grid gap-2">
           {monitors.map(monitor => (
-            <Link key={monitor.id} href={`/monitors/${monitor.id}`} className="block">
+            <Link key={monitor.id} href={`/dashboard/monitors/${monitor.id}`} className="block">
               <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-accent transition-colors cursor-pointer">
                 <div className="flex items-center space-x-4">
                   {getStatusIcon(monitor.status)}
@@ -47,7 +47,7 @@ export async function SectionMonitors() {
                     <h3 className="font-medium">{monitor.name}</h3>
                     <div className="flex items-center space-x-2 text-sm text-gray-500">
                       <IconGlobe className="h-3 w-3" />
-                      <span>{monitor.url}</span>
+                      <span>{monitor.description}</span>
                     </div>
                   </div>
                 </div>

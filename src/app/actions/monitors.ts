@@ -1,32 +1,21 @@
 'use server';
 
-import { monitors } from '~/app/datasets';
+const endpoint = process.env.NEXT_PUBLIC_API_URL;
 
 export async function fetchMonitors() {
-  // TODO: Implement the actual API call to fetch monitors
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  const response = await fetch(`${endpoint}/api/system`, {});
 
-  return monitors;
+  return response.json();
 }
 
 export async function fetchLatestMonitors() {
-  // TODO: Implement the actual API call to fetch the latest monitors
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  const response = await fetch(`${endpoint}/api/system`, {});
 
-  // Return the latest monitors, assuming they are the first 5 in the dataset
-  return monitors.slice(0, 5);
+  return await response.json();
 }
 
 export async function fetchMonitorById(id: number) {
-  // TODO: Implement the actual API call to fetch a monitor by ID
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  const response = await fetch(`${endpoint}/api/system/${id}`, {});
 
-  // Find the monitor by ID
-  const monitor = monitors.find(m => m.id === id);
-
-  if (!monitor) {
-    throw new Error(`Monitor with ID ${id} not found`);
-  }
-
-  return monitor;
+  return await response.json();
 }
